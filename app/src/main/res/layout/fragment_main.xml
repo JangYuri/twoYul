@@ -105,7 +105,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="64dp"
                     android:layout_marginRight="20dp"
-                    android:text="주변 오염물질 농도"
+                    android:text="대기오염물질"
                     android:textColor="#3f3f3f"
                     android:textSize="13dp"
                     android:textStyle="bold"

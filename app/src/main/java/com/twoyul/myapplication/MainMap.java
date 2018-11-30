@@ -39,33 +39,39 @@ public class MainMap extends AppCompatActivity implements View.OnClickListener {
         Intent mainIntent = new Intent(this, MainActivity.class);
         switch (v.getId()) {
 
-        case R.id.hadong:
+        case R.id.incheon:
             mainIntent.putExtra("number", 0);
             startActivity(mainIntent);
             break;
 
-        case R.id.incheon:
+
+        case R.id.greenpower:
             mainIntent.putExtra("number", 1);
             startActivity(mainIntent);
             break;
 
-        case R.id.busan:
+        case R.id.andong:
             mainIntent.putExtra("number", 2);
             startActivity(mainIntent);
             break;
 
-        case R.id.jeju:
-            mainIntent.putExtra("number", 3);
-            startActivity(mainIntent);
-            break;
+            case R.id.youngwol:
+                mainIntent.putExtra("number", 3);
+                startActivity(mainIntent);
+                break;
 
-        case R.id.greenpower:
+        case R.id.busan:
             mainIntent.putExtra("number", 4);
             startActivity(mainIntent);
             break;
 
-        case R.id.andong:
-            mainIntent.putExtra("number", 5);
+            case R.id.hadong:
+                mainIntent.putExtra("number", 5);
+                startActivity(mainIntent);
+                break;
+
+        case R.id.jeju:
+            mainIntent.putExtra("number", 6);
             startActivity(mainIntent);
             break;
         }
