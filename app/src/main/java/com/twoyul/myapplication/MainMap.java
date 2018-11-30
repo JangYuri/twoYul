@@ -38,35 +38,50 @@ public class MainMap extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         Intent mainIntent;
         switch (v.getId()){
-            case R.id.hadong:
-                 mainIntent = new Intent(this, MainActivity.class);
-                startActivity(mainIntent);
-                break;
-
             case R.id.incheon:
-                 mainIntent = new Intent(this, MainActivity.class);
-                startActivity(mainIntent);
-                break;
-
-            case R.id.busan:
-                 mainIntent = new Intent(this, MainActivity.class);
-                startActivity(mainIntent);
-                break;
-
-            case R.id.jeju:
-                 mainIntent = new Intent(this, MainActivity.class);
+                mainIntent = new Intent(this, MainActivity.class);
+                mainIntent.putExtra("index", 0);
                 startActivity(mainIntent);
                 break;
 
             case R.id.greenpower:
-                 mainIntent = new Intent(this, MainActivity.class);
+                mainIntent = new Intent(this, MainActivity.class);
+                mainIntent.putExtra("index", 1);
                 startActivity(mainIntent);
                 break;
 
             case R.id.andong:
-                 mainIntent = new Intent(this, MainActivity.class);
+                mainIntent = new Intent(this, MainActivity.class);
+                mainIntent.putExtra("index", 2);
                 startActivity(mainIntent);
                 break;
+
+            case R.id.youngwol:
+                mainIntent = new Intent(this, MainActivity.class);
+                mainIntent.putExtra("index", 3);
+                startActivity(mainIntent);
+                break;
+
+            case R.id.busan:
+                mainIntent = new Intent(this, MainActivity.class);
+                mainIntent.putExtra("index", 4);
+                startActivity(mainIntent);
+                break;
+
+            case R.id.hadong:
+                 mainIntent = new Intent(this, MainActivity.class);
+                mainIntent.putExtra("index", 5);
+                 startActivity(mainIntent);
+                break;
+
+
+            case R.id.jeju:
+                 mainIntent = new Intent(this, MainActivity.class);
+                mainIntent.putExtra("index", 6);
+                startActivity(mainIntent);
+                break;
+
+
 
 
         }
