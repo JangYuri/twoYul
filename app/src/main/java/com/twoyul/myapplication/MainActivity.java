@@ -20,6 +20,12 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.twoyul.myapplication.Model.PollDTO;
+import com.twoyul.myapplication.Model.PowerPlant;
+import com.twoyul.myapplication.Model.PowerPlants;
+
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     /**
@@ -63,6 +69,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        int pageNum = getIntent().getIntExtra("number", 0);
+        mViewPager.setCurrentItem(pageNum);
     }
 
     @Override
@@ -76,67 +85,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        public PlaceholderFragment() {
-        }
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.pageTitle);
-            switch(getArguments().getInt(ARG_SECTION_NUMBER)){
-                case 1:
-                    textView.setText("신인천복합화력발전소");
-                    break;
-                case 2:
-                    textView.setText("신인천복합화력발전소");
-                    break;
-                case 3:
-                    textView.setText("신인천복합화력발전소");
-                    break;
-                case 4:
-                    textView.setText("부산복합화력발전소");
-                    break;
-                case 5:
-                    textView.setText("안동복합화력발전소");
-                    break;
-                case 6:
-                    textView.setText("남제주화력발전소");
-                    break;
-            }
-
-            return rootView;
-        }
-    }
-
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
+        private ArrayList<PowerPlant> data = PowerPlants.getInstance();
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -144,15 +98,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            PowerPlant matchedData = data.get(position);
+            return InfoFragment.newInstance(
+                matchedData.getStrOrgCd(),
+                matchedData.getStrSnumPos(),
+                matchedData.getPlantName()
+            );
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 6;
+            return data.size();
         }
     }
 }

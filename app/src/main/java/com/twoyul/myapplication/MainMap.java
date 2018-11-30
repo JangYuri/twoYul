@@ -36,69 +36,38 @@ public class MainMap extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Intent mainIntent;
+        Intent mainIntent = new Intent(this, MainActivity.class);
         switch (v.getId()){
+
             case R.id.hadong:
-                 mainIntent = new Intent(this, MainActivity.class);
+                mainIntent.putExtra("number", 0);
                 startActivity(mainIntent);
                 break;
 
             case R.id.incheon:
-                 mainIntent = new Intent(this, MainActivity.class);
+                mainIntent.putExtra("number", 1);
                 startActivity(mainIntent);
                 break;
 
             case R.id.busan:
-                 mainIntent = new Intent(this, MainActivity.class);
+                mainIntent.putExtra("number", 2);
                 startActivity(mainIntent);
                 break;
 
             case R.id.jeju:
-                 mainIntent = new Intent(this, MainActivity.class);
+                mainIntent.putExtra("number", 3);
                 startActivity(mainIntent);
                 break;
 
             case R.id.greenpower:
-                 mainIntent = new Intent(this, MainActivity.class);
+                mainIntent.putExtra("number", 4);
                 startActivity(mainIntent);
                 break;
 
             case R.id.andong:
-                 mainIntent = new Intent(this, MainActivity.class);
+                mainIntent.putExtra("number", 5);
                 startActivity(mainIntent);
                 break;
-
-
         }
     }
-//
-//    private OnClickListener btnClickListener = new View.OnClickListener(){
-//        @Override
-//        public void onClick(View v) {
-//            switch (v.getId()){
-//                case R.id.hadong:
-//                    Intent mainIntent = new Intent(this, MainActivity.class);
-//                    startActivity(mainIntent);
-//                    finish();
-//                    break;
-//
-//                case R.id.incheon:
-//                    break;
-//
-//                case R.id.busan:
-//                    break;
-//
-//                case R.id.jeju:
-//                    break;
-//
-//                case R.id.greenpower:
-//                    break;
-//
-//                case R.id.andong:
-//                    break;
-//
-//
-//            }
-//        }
-//    };
 }
